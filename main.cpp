@@ -1,31 +1,55 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <Windows.h>
 
-int Normal(int n) {
-	return (n * 1072);
+typedef void (*newType)(int*);
+
+void Gambling(int* a) {
+	int result = rand() % 6 + 1;
+	if (*a == 2) {
+		printf("貴方が選んだのは丁(偶数)です\n");
+		if (result % 2 == 0) {
+			printf("出目は%dで貴方の勝ちです\n\n", result);
+		}
+		else {
+			printf("出目は%dで貴方の負けです\n\n", result);
+		}
+	}
+	else if (*a == 1) {
+		printf("貴方が選んだのは半(奇数)です\n");
+		if ((result & 1) == 1) {
+			printf("出目は%dで貴方の勝ちです\n\n", result);
+		}
+		else {
+			printf("出目は%dで貴方の負けです\n\n", result);
+		}
+	}
+	else {
+		printf("1か2を入力して下さい\n");
+	}
 }
 
-int Recursive(int n) {
-	if (n <= 1) {
-		return (100);
+void TimeOut(newType nt, int inputNum) {
+	for (int i = 0; i < 3; i++) {
+		printf("・");
+		Sleep(1000);//1秒待つ
 	}
+	printf("\n");
 
-	return (Recursive(n - 1) * 2 - 50);
+	nt(&inputNum);
 }
 
 int main(void) {
-	int hour = 10;
+	newType test;
+	int inputNum;
 
-	for (int i = 1; i < hour; i++) {
+	while (1) {
+		printf("半(奇数)なら1、丁(偶数)なら2を入力してください\n");
+		scanf_s("%d", &inputNum);
 
-		int normalResult = 0;
-		int recursiveResult = 0;
-
-		normalResult = Normal(i);
-		recursiveResult = Recursive(i);
-
-		printf("一般的な賃金：%d時間働くと%d円\n", i, normalResult);
-		printf("再帰的な賃金：%d時間働くと%d円\n\n", i, recursiveResult);
-
+		test = Gambling;
+		TimeOut(test, inputNum);
 	}
+
 	return 0;
 }
