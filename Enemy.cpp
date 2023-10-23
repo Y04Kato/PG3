@@ -11,16 +11,16 @@ void Enemy::Update() {
 }
 
 void Enemy::Adjacent() {
-	printf("エネミーの近接\n");
+	printf("繧ｨ繝阪Α繝ｼ縺ｮ霑第磁\n");
 	phase_++;
 }
 
 void Enemy::Shooting() {
-	printf("エネミーの射撃\n");
+	printf("繧ｨ繝阪Α繝ｼ縺ｮ蟆�謦ソn");
 	phase_++;
 }
 
 void Enemy::Secession() {
-	printf("エネミーの離脱\n");
-	printf("エネミーの行動終了\n");
+	printf("繧ｨ繝阪Α繝ｼ縺ｮ髮｢閼ｱ\n");
+	printf("繧ｨ繝阪Α繝ｼ縺ｮ陦悟虚邨ゆｺ�\n");
 }
