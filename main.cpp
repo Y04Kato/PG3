@@ -40,15 +40,15 @@ void TimeOut(newType nt, int inputNum) {
 }
 
 int main(void) {
-	newType test;
+	newType gambling;
 	int inputNum;
 
 	while (1) {
 		printf("半(奇数)なら1、丁(偶数)なら2を入力してください\n");
 		scanf_s("%d", &inputNum);
 
-		test = Gambling;
-		TimeOut(test, inputNum);
+		gambling = Gambling;
+		TimeOut(gambling, inputNum);
 	}
 
 	return 0;
