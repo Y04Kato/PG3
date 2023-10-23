@@ -1,13 +1,14 @@
 #include "Eraser.h"
 
 Eraser::Eraser() {
-	printf("%sを買ってきた\n", name);
+	name = "豸医＠繧ｴ繝";
+	printf("%s繧定ｲｷ縺｣縺ｦ縺阪◆\n", name);
 }
 
 Eraser::~Eraser() {
-	printf("%sは不味く、そもそも食べる物じゃなかった\n\n", name);
+	printf("%s縺ｯ荳榊袖縺上√◎繧ゅ◎繧る｣溘∋繧狗黄縺倥ｃ縺ｪ縺九▲縺歃n", name);
 }
 
 void Eraser::Eat() {
-	printf("%sを食べてみようとした\n", name);
+	printf("%s繧帝｣溘∋縺ｦ縺ｿ繧医≧縺ｨ縺励◆\n", name);
 }

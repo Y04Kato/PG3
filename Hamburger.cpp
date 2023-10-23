@@ -1,13 +1,14 @@
 #include "Hamburger.h"
 
 Hamburger::Hamburger() {
-	printf("%s‚ğ”ƒ‚Á‚Ä‚«‚½\n",name);
+	name = "ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼";
+	printf("%sã‚’è²·ã£ã¦ããŸ\n",name);
 }
 
 Hamburger::~Hamburger() {
-	printf("%s‚Í”ü–¡‚µ‚©‚Á‚½\n\n", name);
+	printf("%sã¯ç¾å‘³ã—ã‹ã£ãŸ\n", name);
 }
 
 void Hamburger::Eat() {
-	printf("%s‚ğƒ€ƒVƒƒƒ€ƒVƒƒH‚×‚é\n", name);
+	printf("%sã‚’ãƒ ã‚·ãƒ£ãƒ ã‚·ãƒ£é£Ÿã¹ã‚‹\n", name);
 }
