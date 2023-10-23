@@ -1,39 +1,29 @@
 #include <stdio.h>
-
-template <typename Type1, typename Type2>
-
-class Comparison {
-public:
-	Type1 num1;
-	Type2 num2;
-
-	Comparison(Type1 num1, Type2 num2) :num1(num1), num2(num2) {};
-
-	Type1 Min() {
-		Type1 num = num1 < num2 ? num1 : num2;
-		return static_cast<Type1>(num);
-	}
-
-};
+#include "Food.h"
+#include "Hamburger.h"
+#include "Eraser.h"
 
 int main() {
-	Comparison<int, int> a1(28, 82);
-	Comparison<int, float> a2(114, 514.0f);
-	Comparison<int, double> a3(217, 8.02);
+	const int FoodNum = 3;
+	Food* food[FoodNum];
 
-	Comparison<float, float> b1(32.0f, 14.0f);
-	Comparison<float, double> b2(7.0f, 1.42);
+	for (int i = 0; i < FoodNum; i++) {
+		if (i < FoodNum - 1) {
+			food[i] = new Hamburger();
+		}
+		else {
+			food[i] = new Eraser();
+		}
+	}
 
-	Comparison<double, double> c1(2.02, 4.03);
+	for (int i = 0; i < FoodNum; i++) {
+		food[i]->Eat();
+	}
 
-	printf("%d\n", a1.Min());
-	printf("%d\n", a2.Min());
-	printf("%d\n", a3.Min());
-	
-	printf("%f\n", b1.Min());
-	printf("%f\n", b2.Min());
-	
-	printf("%lf\n", c1.Min());
+	for (int i = 0; i < FoodNum; i++) {
+		delete food[i];
+	}
+
 
 	return 0;
 }
