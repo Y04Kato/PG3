@@ -23,8 +23,8 @@ int main(void) {
 		normalResult = Normal(i);
 		recursiveResult = Recursive(i);
 
-		printf("ˆê”Ê“I‚È’À‹àF%dŠÔ“­‚­‚Æ%d‰~\n", i, normalResult);
-		printf("Ä‹A“I‚È’À‹àF%dŠÔ“­‚­‚Æ%d‰~\n\n", i, recursiveResult);
+		printf("ä¸€èˆ¬çš„ãªè³ƒé‡‘ï¼š%dæ™‚é–“åƒãã¨%då††\n", i, normalResult);
+		printf("å†å¸°çš„ãªè³ƒé‡‘ï¼š%dæ™‚é–“åƒãã¨%då††\n\n", i, recursiveResult);
 
 	}
 	return 0;
