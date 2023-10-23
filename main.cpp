@@ -9,7 +9,7 @@ void Min(Type a, Type b) {
 
 template <>
 void Min<char>(char a, char b) {
-	std::cout << "”ŽšˆÈŠO‚Í‘ã“ü‚Å‚«‚Ü‚¹‚ñ" << std::endl;
+	std::cout << "æ•°å­—ä»¥å¤–ã¯ä»£å…¥ã§ãã¾ã›ã‚“" << std::endl;
 }
 
 int main() {
