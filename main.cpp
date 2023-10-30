@@ -15,7 +15,7 @@ int Recursive(int n) {
 int main(void) {
 	int hour = 10;
 
-	for (int i = 1; i < hour; i++) {
+	for (int i = 0; i < hour; i++) {
 
 		int normalResult = 0;
 		int recursiveResult = 0;
