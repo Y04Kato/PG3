@@ -29,8 +29,8 @@ void Gambling(int* a) {
 	}
 }
 
-void TimeOut(newType nt, int inputNum) {
-	for (int i = 0; i < 3; i++) {
+void SetTimeOut(newType nt, int inputNum, int sleepTime) {
+	for (int i = 0; i < sleepTime; i++) {
 		printf("・");
 		Sleep(1000);//1秒待つ
 	}
@@ -42,13 +42,14 @@ void TimeOut(newType nt, int inputNum) {
 int main(void) {
 	newType gambling;
 	int inputNum;
+	int sleepTime = 3;
 
 	while (1) {
 		printf("半(奇数)なら1、丁(偶数)なら2を入力してください\n");
 		scanf_s("%d", &inputNum);
 
 		gambling = Gambling;
-		TimeOut(gambling, inputNum);
+		SetTimeOut(gambling, inputNum, sleepTime);
 	}
 
 	return 0;
