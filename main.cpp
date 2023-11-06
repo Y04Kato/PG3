@@ -2,5 +2,7 @@
 
 int main() {
 
+	printf("おばんです");
+
 	return 0;
 }
