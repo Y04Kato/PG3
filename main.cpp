@@ -1,27 +1,31 @@
 #include <stdio.h>
 
-int Normal(int n) {
-	return (n * 1072);
-}
-
-int Recursive(int n) {
-	if (n <= 1) {
-		return (100);
+int NormalSalary(int pay, int hour) {
+	if (hour <= 0) {
+		return pay;
 	}
 
-	return (Recursive(n - 1) * 2 - 50);
+	return pay + NormalSalary(pay, hour - 1);
+}
+
+int RecursiveSalary(int pay, int hour) {
+	if (hour <= 0) {
+		return pay;
+	}
+
+	return pay + RecursiveSalary(pay * 2 - 50, hour - 1);
 }
 
 int main(void) {
-	int hour = 10;
+	int hour = 10 - 1;
 
-	for (int i = 0; i < hour; i++) {
+	for (int i = 1; i <= hour; i++) {
 
 		int normalResult = 0;
 		int recursiveResult = 0;
 
-		normalResult = Normal(i);
-		recursiveResult = Recursive(i);
+		normalResult = NormalSalary(1072, i - 1);
+		recursiveResult = RecursiveSalary(100, i - 1);
 
 		printf("一般的な賃金：%d時間働くと%d円\n", i, normalResult);
 		printf("再帰的な賃金：%d時間働くと%d円\n\n", i, recursiveResult);
