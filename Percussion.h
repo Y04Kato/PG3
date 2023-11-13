@@ -1,11 +1,11 @@
 #pragma once
 #include <stdio.h>
 
-class Food {
+class Percussion {
 public:
-	virtual ~Food();
+	virtual ~Percussion();
 
-	virtual void Eat();
+	virtual void Beat();
 
 protected:
 	const char* name;

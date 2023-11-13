@@ -1,27 +1,27 @@
 #include <stdio.h>
-#include "Food.h"
-#include "Hamburger.h"
-#include "Eraser.h"
+#include "Percussion.h"
+#include "Gong.h"
+#include "SnareDrum.h"
 
 int main() {
 	const int FoodNum = 3;
-	Food* food[FoodNum];
+	Percussion* percussion[FoodNum];
 
 	for (int i = 0; i < FoodNum; i++) {
 		if (i < FoodNum - 1) {
-			food[i] = new Hamburger();
+			percussion[i] = new Gong();
 		}
 		else {
-			food[i] = new Eraser();
+			percussion[i] = new SnareDrum();
 		}
 	}
 
 	for (int i = 0; i < FoodNum; i++) {
-		food[i]->Eat();
+		percussion[i]->Beat();
 	}
 
 	for (int i = 0; i < FoodNum; i++) {
-		delete food[i];
+		delete percussion[i];
 	}
 
 

@@ -139,15 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Eraser.cpp" />
-    <ClCompile Include="Food.cpp" />
-    <ClCompile Include="Hamburger.cpp" />
+    <ClCompile Include="SnareDrum.cpp" />
+    <ClCompile Include="Percussion.cpp" />
+    <ClCompile Include="Gong.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Eraser.h" />
-    <ClInclude Include="Food.h" />
-    <ClInclude Include="Hamburger.h" />
+    <ClInclude Include="SnareDrum.h" />
+    <ClInclude Include="Percussion.h" />
+    <ClInclude Include="Gong.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
