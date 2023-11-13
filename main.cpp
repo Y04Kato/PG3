@@ -4,11 +4,11 @@
 #include "SnareDrum.h"
 
 int main() {
-	const int FoodNum = 3;
-	Percussion* percussion[FoodNum];
+	const int percussionNum = 3;
+	Percussion* percussion[percussionNum];
 
-	for (int i = 0; i < FoodNum; i++) {
-		if (i < FoodNum - 1) {
+	for (int i = 0; i < percussionNum; i++) {
+		if (i < percussionNum - 1) {
 			percussion[i] = new Gong();
 		}
 		else {
@@ -16,11 +16,11 @@ int main() {
 		}
 	}
 
-	for (int i = 0; i < FoodNum; i++) {
+	for (int i = 0; i < percussionNum; i++) {
 		percussion[i]->Beat();
 	}
 
-	for (int i = 0; i < FoodNum; i++) {
+	for (int i = 0; i < percussionNum; i++) {
 		delete percussion[i];
 	}
 
