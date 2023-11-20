@@ -4,6 +4,14 @@
 #include <functional>
 #include <time.h>
 
+void SetTimeOut(int waitTime) {
+	for (int i = 0; i < waitTime; i++) {
+		printf("・");
+		Sleep(1000);
+	}
+	printf("\n");
+}
+
 int main(void) {
 	srand((unsigned int)time(nullptr));
 	int inputNum;
@@ -13,12 +21,8 @@ int main(void) {
 		return  rand() % 6 + 1;
 	};
 
-	std::function<void(int, int, int)> setTimeOut = [&](int diceResult, int inputNum, int waitTime) {
-		for (int i = 0; i < waitTime; i++) {
-			printf("・");
-			Sleep(1000);
-		}
-		printf("\n");
+	std::function<void(int, int)> resultIndication = [&](int diceResult, int inputNum) {
+		SetTimeOut(3);
 
 		if (inputNum == 2) {
 			printf("貴方が選んだのは丁(偶数)です\n");
@@ -46,7 +50,7 @@ int main(void) {
 	while (1) {
 		printf("半(奇数)なら1、丁(偶数)なら2を入力してください\n");
 		scanf_s("%d", &inputNum);
-		setTimeOut(randDice(), inputNum, 3);
+		resultIndication(randDice(), inputNum);
 	}
 
 	return 0;
