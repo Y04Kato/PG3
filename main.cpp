@@ -4,53 +4,55 @@
 #include <functional>
 #include <time.h>
 
-void SetTimeOut(int waitTime) {
+void SetTimeOut(std::function<void(void)> function,int waitTime) {
 	for (int i = 0; i < waitTime; i++) {
-		printf("ãƒ»");
+		printf("E");
 		Sleep(1000);
 	}
 	printf("\n");
+	function();
 }
 
 int main(void) {
 	srand((unsigned int)time(nullptr));
 	int inputNum;
-	int sleepTime = 3;
+	int waitTime = 3;
 
 	std::function<int()> randDice = []() {
 		return  rand() % 6 + 1;
 	};
 
-	std::function<void(int, int)> resultIndication = [&](int diceResult, int inputNum) {
-		SetTimeOut(3);
-
-		if (inputNum == 2) {
-			printf("è²´æ–¹ãŒé¸ã‚“ã ã®ã¯ä¸(å¶æ•°)ã§ã™\n");
-			if (diceResult % 2 == 0) {
-				printf("å‡ºç›®ã¯%dã§è²´æ–¹ã®å‹ã¡ã§ã™\n\n", diceResult);
-			}
-			else {
-				printf("å‡ºç›®ã¯%dã§è²´æ–¹ã®è² ã‘ã§ã™\n\n", diceResult);
-			}
-		}
-		else if (inputNum == 1) {
-			printf("è²´æ–¹ãŒé¸ã‚“ã ã®ã¯åŠ(å¥‡æ•°)ã§ã™\n");
-			if ((diceResult & 1) == 1) {
-				printf("å‡ºç›®ã¯%dã§è²´æ–¹ã®å‹ã¡ã§ã™\n\n", diceResult);
-			}
-			else {
-				printf("å‡ºç›®ã¯%dã§è²´æ–¹ã®è² ã‘ã§ã™\n\n", diceResult);
-			}
-		}
-		else {
-			printf("1ã‹2ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„\n");
-		}
-	};
-
 	while (1) {
-		printf("åŠ(å¥‡æ•°)ãªã‚‰1ã€ä¸(å¶æ•°)ãªã‚‰2ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\n");
+		printf("”¼(Šï”)‚È‚ç1A’š(‹ô”)‚È‚ç2‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
 		scanf_s("%d", &inputNum);
-		resultIndication(randDice(), inputNum);
+
+		std::function<void()> resultIndication = [&]() {
+			int diceResult = randDice();
+
+			if (inputNum == 2) {
+				printf("‹M•û‚ª‘I‚ñ‚¾‚Ì‚Í’š(‹ô”)‚Å‚·\n");
+				if (diceResult % 2 == 0) {
+					printf("o–Ú‚Í%d‚Å‹M•û‚ÌŸ‚¿‚Å‚·\n\n", diceResult);
+				}
+				else {
+					printf("o–Ú‚Í%d‚Å‹M•û‚Ì•‰‚¯‚Å‚·\n\n", diceResult);
+				}
+			}
+			else if (inputNum == 1) {
+				printf("‹M•û‚ª‘I‚ñ‚¾‚Ì‚Í”¼(Šï”)‚Å‚·\n");
+				if ((diceResult & 1) == 1) {
+					printf("o–Ú‚Í%d‚Å‹M•û‚ÌŸ‚¿‚Å‚·\n\n", diceResult);
+				}
+				else {
+					printf("o–Ú‚Í%d‚Å‹M•û‚Ì•‰‚¯‚Å‚·\n\n", diceResult);
+				}
+			}
+			else {
+				printf("1‚©2‚ğ“ü—Í‚µ‚Ä‰º‚³‚¢\n");
+			}
+		};
+
+		SetTimeOut(resultIndication, waitTime);
 	}
 
 	return 0;
