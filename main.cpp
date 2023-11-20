@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-typedef void (*newType)(int*);
+typedef void (*pFunc)(int*);
 
 void Gambling(int* a) {
 	int result = rand() % 6 + 1;
@@ -29,7 +29,7 @@ void Gambling(int* a) {
 	}
 }
 
-void SetTimeOut(newType nt, int inputNum, int sleepTime) {
+void SetTimeOut(pFunc nt, int inputNum, int sleepTime) {
 	for (int i = 0; i < sleepTime; i++) {
 		printf("・");
 		Sleep(1000);//1秒待つ
@@ -40,7 +40,7 @@ void SetTimeOut(newType nt, int inputNum, int sleepTime) {
 }
 
 int main(void) {
-	newType gambling;
+	pFunc gambling;
 	int inputNum;
 	int sleepTime = 3;
 
